@@ -57,7 +57,7 @@ namespace Cronometro
                 pauseBtn.Content = "Resume";
                 isTimerRunning = !isTimerRunning;
             }
-            else if (timerTick>0)
+            else if (timerTick>1)
             {
                 dispatcherTimer.Start();
                 pauseBtn.Content = "Pause";
