@@ -33,7 +33,7 @@ namespace Cronometro
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Tick += DispatcherTimer_Tick;
 
-            timerTick = 0;
+            timerTick = 1;
         }
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)

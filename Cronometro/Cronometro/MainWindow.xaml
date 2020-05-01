@@ -7,6 +7,35 @@
         mc:Ignorable="d"
         Title="Cronómetro" Height="450" Width="800" MinHeight="450" MinWidth="800">
 
+    <Window.Resources>
+        <Style x:Key="ButtonStype" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="60"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"  BorderThickness="3"
+                            Background="Transparent" BorderBrush="White" CornerRadius="80" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Effect" >
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="5" ShadowDepth="3" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Focusable="False">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,0.9" StartPoint="1,0.6">
@@ -14,7 +43,7 @@
                 <GradientStop Color="#FFFF9A36" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -26,28 +55,8 @@
         </Grid.RowDefinitions>
 
         <Label x:Name="timerLbl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Content="00::00::00" FontSize="150" HorizontalAlignment="Center" FontFamily="Kozuka Gothic Pro EL" Foreground="White"/>
-        
-        <Button x:Name="startBtn" Grid.Column="0" Grid.Row="1" Margin="10" Content="Start" FontSize="60" Click="StartBtn_Click" Background="Transparent" BorderThickness="7" BorderBrush="White" Foreground="White" Focusable="False">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="80"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="pauseBtn" Grid.Column="1" Grid.Row="1" Margin="10" Content="Pause" FontSize="60" Click="PauseBtn_Click" Background="Transparent" BorderThickness="7" BorderBrush="White" Foreground="White" Focusable="False">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="80"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button IsTabStop="false" x:Name="stopBtn" Grid.Column="2" Grid.Row="1" Margin="10" Content="Stop" FontSize="60" Click="StopBtn_Click"  Background="Transparent" BorderThickness="7" BorderBrush="White" Foreground="White" Focusable="False">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="80"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Button Style="{StaticResource ButtonStype}" x:Name="startBtn" Grid.Column="0" Grid.Row="1"  Content="Start"  Click="StartBtn_Click"/>
+        <Button Style="{StaticResource ButtonStype}" x:Name="pauseBtn" Grid.Column="1" Grid.Row="1"  Content="Pause"  Click="PauseBtn_Click"/>
+        <Button Style="{StaticResource ButtonStype}" x:Name="stopBtn" Grid.Column="2" Grid.Row="1"  Content="Stop"  Click="StopBtn_Click"/>
     </Grid>
-    
 </Window>
