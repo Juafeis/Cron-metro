@@ -1,6 +1,6 @@
 # Cronómetro en WPF
 
-Basic Stopclock application build in C# using WPF. 
+Basic Stopclock application built in C# using WPF. 
 
 The Stopclock uses basic grid column and row definitions for the correct layout distribution and resize.
 ![Layaout](https://i.imgur.com/RzARymK.png)
