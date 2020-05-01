@@ -70,7 +70,7 @@ namespace Cronometro
         {
             dispatcherTimer.Stop();
             timerLbl.Content = "00::00::00";
-            timerTick = 0;
+            timerTick = 1;
             isTimerRunning = false;
             pauseBtn.Content = "Pause";
         }
